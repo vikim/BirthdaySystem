@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-
-namespace BirthdaySystem.Web
+﻿namespace BirthdaySystem.Web
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+
+    using BirthdaySystem.Web.Infrastructure.Mapping;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -16,6 +19,10 @@ namespace BirthdaySystem.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // creata and cashe all mapping when application start
+            var autoMapperConfig = new AutoMapperConfig(Assembly.GetExecutingAssembly());
+            autoMapperConfig.Execute();
         }
     }
 }
