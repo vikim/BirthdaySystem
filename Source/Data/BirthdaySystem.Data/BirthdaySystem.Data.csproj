@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,13 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BirthdaySystem.Data.Common\BirthdaySystem.Data.Common.csproj">
-      <Project>{cb4cf97c-2a3f-4adc-adf2-849ab71996a6}</Project>
-      <Name>BirthdaySystem.Data.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BirthdaySystem.Models\BirthdaySystem.Models.csproj">
+    <ProjectReference Include="..\BirthdaySystem.Models\BirthdaySystemModels.csproj">
       <Project>{919e5bac-fa53-440e-99e5-c529532e9f6b}</Project>
-      <Name>BirthdaySystem.Models</Name>
+      <Name>BirthdaySystemModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

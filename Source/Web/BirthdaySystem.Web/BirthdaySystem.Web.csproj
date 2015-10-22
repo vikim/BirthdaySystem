@@ -265,9 +265,9 @@
       <Project>{082b6e66-c488-4291-8153-9078c0ef07da}</Project>
       <Name>BirthdaySystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\BirthdaySystem.Models\BirthdaySystem.Models.csproj">
+    <ProjectReference Include="..\..\Data\BirthdaySystem.Models\BirthdaySystemModels.csproj">
       <Project>{919e5bac-fa53-440e-99e5-c529532e9f6b}</Project>
-      <Name>BirthdaySystem.Models</Name>
+      <Name>BirthdaySystemModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\BirthdaySystem.Web.Infrastructure\BirthdaySystem.Web.Infrastructure.csproj">
       <Project>{2448f550-25bf-44bb-8aee-59a356dcb49e}</Project>

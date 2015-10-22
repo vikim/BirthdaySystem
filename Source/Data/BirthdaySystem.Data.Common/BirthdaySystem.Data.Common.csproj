@@ -52,11 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BirthdayData.cs" />
+    <Compile Include="Data\IBirthdayData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BirthdaySystem.Data\BirthdaySystem.Data.csproj">
+      <Project>{082b6e66-c488-4291-8153-9078c0ef07da}</Project>
+      <Name>BirthdaySystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BirthdaySystem.Models\BirthdaySystemModels.csproj">
+      <Project>{919e5bac-fa53-440e-99e5-c529532e9f6b}</Project>
+      <Name>BirthdaySystemModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

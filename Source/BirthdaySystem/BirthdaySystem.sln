@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdaySystem.Data", "..\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdaySystem.Data.Common", "..\Data\BirthdaySystem.Data.Common\BirthdaySystem.Data.Common.csproj", "{CB4CF97C-2A3F-4ADC-ADF2-849AB71996A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdaySystem.Models", "..\Data\BirthdaySystem.Models\BirthdaySystem.Models.csproj", "{919E5BAC-FA53-440E-99E5-C529532E9F6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdaySystemModels", "..\Data\BirthdaySystem.Models\BirthdaySystemModels.csproj", "{919E5BAC-FA53-440E-99E5-C529532E9F6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdaySystem.Web", "..\Web\BirthdaySystem.Web\BirthdaySystem.Web.csproj", "{480E96E8-31D3-475F-B064-7FE19256F78B}"
 EndProject

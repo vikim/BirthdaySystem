@@ -53,17 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Present.cs" />
+    <Compile Include="PresentVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BirthdaySystem.Data.Common\BirthdaySystem.Data.Common.csproj">
-      <Project>{cb4cf97c-2a3f-4adc-adf2-849ab71996a6}</Project>
-      <Name>BirthdaySystem.Data.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
