@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BirthdaySystem\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BirthdaySystem\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -106,12 +114,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\BirthdaySystem\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\BirthdaySystem\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\BirthdaySystem\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\..\BirthdaySystem\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -164,7 +166,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\OldAccountViewModels.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
@@ -174,8 +175,6 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\IdentityModels.cs" />
-    <Compile Include="ViewModels\OldManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
@@ -256,6 +255,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\BirthdaySystem.Data.Common\BirthdaySystem.Data.Common.csproj">
+      <Project>{cb4cf97c-2a3f-4adc-adf2-849ab71996a6}</Project>
+      <Name>BirthdaySystem.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\BirthdaySystem.Data\BirthdaySystem.Data.csproj">
+      <Project>{082b6e66-c488-4291-8153-9078c0ef07da}</Project>
+      <Name>BirthdaySystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\BirthdaySystem.Models\BirthdaySystem.Models.csproj">
+      <Project>{919e5bac-fa53-440e-99e5-c529532e9f6b}</Project>
+      <Name>BirthdaySystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BirthdaySystem.Web.Infrastructure\BirthdaySystem.Web.Infrastructure.csproj">
+      <Project>{2448f550-25bf-44bb-8aee-59a356dcb49e}</Project>
+      <Name>BirthdaySystem.Web.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
