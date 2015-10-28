@@ -17,7 +17,7 @@
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Birthdate yyyy-MM-dd HH:mm:ss dd/mm/yyyy")]
+        [Display(Name = "Birthdate yyyy/mm/dd")]
         //[Column(TypeName = "datetime2")]
         public DateTime Birthdate { get; set; }
 

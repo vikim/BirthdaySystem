@@ -43,14 +43,13 @@
             }
         }
 
-        /*
         public IRepository<ApplicationUser> Users
         {
             get
             {
                 return this.GetRepository<ApplicationUser>();
             }
-        }*/
+        }
 
         private IRepository<T> GetRepository<T>()
            where T : class

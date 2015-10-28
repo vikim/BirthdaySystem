@@ -10,5 +10,7 @@
         IRepository<PresentVote> PresentsVotes { get; }
 
         IRepository<Present> Presents { get; }
+
+        IRepository<ApplicationUser> Users { get; }
     }
 }

@@ -15,6 +15,9 @@ namespace BirthdaySystem.Web.App_Start
     using BirthdaySystem.Data;
     using BirthdaySystem.Data.Common.Repository;
     using BirthdaySystem.Data.Common.Data;
+    using BirthdaySystem.Web.Infrastructure.Cache;
+    using BirthdaySystem.Data.Common.Services;
+    using BirthdaySystem.Data.Common.Services.Contracts;
 
     public static class NinjectWebCommon 
     {
@@ -71,6 +74,12 @@ namespace BirthdaySystem.Web.App_Start
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
 
             kernel.Bind<IBirthdayData>().To<BirthdayData>();
+
+            kernel.Bind<IBirthdayPeopleService>().To<BirthdayPeopleService>();
+
+            kernel.Bind<IVoteService>().To<VoteService>();
+
+            kernel.Bind<ICacheService>().To<MemoryCacheService>();
         }        
     }
 }

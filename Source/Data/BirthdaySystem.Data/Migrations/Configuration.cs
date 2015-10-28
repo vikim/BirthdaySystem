@@ -12,7 +12,7 @@ namespace BirthdaySystem.Data.Migrations
             this.AutomaticMigrationsEnabled = true;
 
             // TODO: remove in production
-            //this.AutomaticMigrationDataLossAllowed = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(BirthdaySystem.Data.ApplicationDbContext context)

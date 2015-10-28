@@ -76,7 +76,8 @@
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            // var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -157,9 +158,6 @@
         {
             if (ModelState.IsValid)
             {
-                var sqlFormattedDate = model.Birthdate.Date.ToString("yyyy-MM-dd HH:mm:ss");
-
-                //Convert.ToDateTime(model.Birthdate)
                 var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, Birthdate = model.Birthdate, UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
