@@ -35,6 +35,10 @@
             </div>
             <div class="row">
                 <input type="submit" value="Start Vote" class="btn" />
+                @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn-block btn-toolbar" })
+                @*<div class="btn-block btn-toolbar">
+                    @Html.ActionLink("Back", "Index")
+                </div>*@
             </div>
         }
     </div>

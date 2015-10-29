@@ -1,7 +1,25 @@
-﻿
+﻿@model IEnumerable<BirthdaySystem.Web.ViewModels.Home.VoteModel>
 @{
-    ViewBag.Title = "OpenedVotes";
+    ViewBag.Title = "Available Opened Votes for Voting";
 }
 
-<h2>OpenedVotes</h2>
+<h2>@ViewBag.Title</h2>
+
+<table class="table-bordered">
+    <tr class="text-center text-primary">
+        <th class="col-md-4">Birthday for</th>
+        <th class="col-md-1">Vote Start Date</th>
+        <th class="col-md-1">Year</th>
+        <th class="col-md-1"></th>
+    </tr>
+    @foreach (var vote in Model)
+    {
+        <tr class="text-center">
+            <td>@vote.BirthdayPerson.FirstName @vote.BirthdayPerson.LastName</td>
+            <td>@vote.StartDate.ToShortDateString()</td>
+            <td>@vote.Year</td>
+            <td>@Html.ActionLink("Vote for a present", "PresentVote", new { id = @vote.Id})</td>
+        </tr>
+    }
+</table>
 

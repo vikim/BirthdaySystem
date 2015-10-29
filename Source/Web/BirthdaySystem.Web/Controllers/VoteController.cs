@@ -15,6 +15,7 @@
     using BirthdaySystem.Web.Infrastructure.Populators;
     using BirthdaySystem.Web.ViewModels.Vote;
     using BirthdaySystem.Models;
+    using BirthdaySystem.Web.ViewModels.Home;
 
     public class VoteController : Controller
     {
@@ -82,7 +83,7 @@
                 {
                     BirthdayPersonId = birthdayPerson.Id,
                     //BirthdayPerson = birthdayPerson,
-                    InitiatorId=currentUser,
+                    InitiatorId = currentUser,
                     //Initiator = initiator,
                     StartDate = input.StartDate,
                     EndDate = input.EndDate,
@@ -102,7 +103,12 @@
         [Authorize]
         public ActionResult OpenedVotes()
         {
-            return View();
+            var availableVotes = this.voteData
+                .GetAvailableVotes(this.dbData, this.User.Identity.GetUserId())
+                .ProjectTo<VoteModel>()
+                .ToList();
+
+            return View(availableVotes);
         }
     }
 }

@@ -8,6 +8,8 @@
 
     public class VoteModel : IMapFrom<Vote>
     {
+        public int Id { get; set; }
+
         [Display(Name = "Vote Initiator")]
         public ApplicationUser Initiator { get; set; }
 
