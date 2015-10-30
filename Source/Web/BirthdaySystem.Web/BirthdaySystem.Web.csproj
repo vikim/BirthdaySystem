@@ -205,6 +205,7 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\User\UserSelectListModel.cs" />
     <Compile Include="ViewModels\Vote\CreateNewVoteModel.cs" />
+    <Compile Include="ViewModels\Vote\PresentVoteModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -267,6 +268,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Vote\CreateVote.cshtml" />
     <Content Include="Views\Vote\OpenedVotes.cshtml" />
+    <Content Include="Views\Vote\PresentVote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,6 @@
 
     public interface ICacheService
     {
-        //IList<ApplicationUser> BirthdayPeople { get; }
+        IList<Present> GetAllPresents { get; }
     }
 }

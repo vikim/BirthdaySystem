@@ -87,7 +87,9 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Services\Contracts\IBirthdayPeopleService.cs" />
     <Compile Include="Services\BirthdayPeopleService.cs" />
+    <Compile Include="Services\Contracts\IPresentService.cs" />
     <Compile Include="Services\Contracts\IVoteService.cs" />
+    <Compile Include="Services\PresentService.cs" />
     <Compile Include="Services\VoteService.cs" />
   </ItemGroup>
   <ItemGroup>

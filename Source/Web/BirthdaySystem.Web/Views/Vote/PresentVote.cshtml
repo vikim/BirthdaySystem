@@ -1,0 +1,44 @@
+﻿@model BirthdaySystem.Web.ViewModels.Vote.PresentVoteModel
+@{
+    ViewBag.Title = "Give your vote for a present";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("PresentVote", "Vote", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.VoteId)
+
+            <div class="row">
+                @Html.LabelFor(m => m.BirthdayPerson)
+                @Html.TextBoxFor(m => m.BirthdayPerson, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.PresentId)
+                @Html.DropDownList("PresentsId", ViewBag.PresentsId as SelectList, "--Choose a Present--", new { style = "width: 600px;", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PresentId)
+            </div>
+
+            @*@Html.HiddenFor(m => m.VoteId)
+
+                <div class="row">
+                    @Html.LabelFor(m => m.BirthdayPerson)
+                    @Html.TextBoxFor(m => m.BirthdayPerson, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="row">
+                    @Html.LabelFor(m => m.PresentId)
+                    @Html.DropDownListFor(m => m.PresentId, Model.Presents as SelectList, "--Choose a Present--", new { style = "width: 600px;", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.PresentId)
+                </div>*@
+            <div class="row">
+                <input type="submit" value="Vote" class="btn" />
+                @Html.ActionLink("Back", "OpenedVotes", "Vote", null, new { @class = "btn-block btn-toolbar" })
+            </div>
+        }
+    </div>
+</div>

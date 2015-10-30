@@ -17,24 +17,20 @@
             this.data = data;
         }
 
-        /*
-        public IList<ApplicationUser> BirthdayPeople
+        public IList<Present> GetAllPresents
         {
             get
             {
-                var birthdayPeople = this.Get<IList<ApplicationUser>>("BirthdayPeople",
+                var presents = this.Get<IList<Present>>("Presents",
                    () =>
                    {
-                       return this.data.Users.All()
-                           .OrderBy(x => x.FirstName)
-                           .ThenBy(x => x.LastName)
-                           //.Select(x => new UserSelectListModel { Id = x.Id, Name = x.Name })
+                       return this.data.Presents.All()
+                           .OrderBy(x => x.Name)
                            .ToList();
                    });
 
-                return birthdayPeople;
+                return presents;
             }
         }
-         * */
     }
 }

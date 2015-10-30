@@ -21,18 +21,19 @@
     {
         private IBirthdayPeopleService birthdayData;
         private IVoteService voteData;
+        private IPresentService presentData;
         private readonly IBirthdayData dbData;
 
-        public VoteController(IBirthdayPeopleService birthdayPeople, IVoteService voteData, IBirthdayData dbData)
+        public VoteController(IBirthdayPeopleService birthdayPeople, IVoteService voteData, IPresentService presentData, IBirthdayData dbData)
         {
             this.birthdayData = birthdayPeople;
             this.voteData = voteData;
+            this.presentData = presentData;
             this.dbData = dbData;
         }
 
         [HttpGet]
         [Authorize]
-        // [PopulateBirthdayPeople]
         //[ValidateAntiForgeryToken]
         // GET: Vote
         public ActionResult CreateVote()
@@ -110,5 +111,106 @@
 
             return View(availableVotes);
         }
+
+        [HttpGet]
+        [Authorize]
+        [PopulatePresents]
+        public ActionResult PresentVote(int id, string birthdayPersonName)
+        {
+            var presentVateModel = new PresentVoteModel
+            {
+                VoteId = id,
+                BirthdayPerson = birthdayPersonName,
+            };
+
+            return View(presentVateModel);
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [PopulatePresents]
+        [ValidateAntiForgeryToken]
+        // http://www.codeproject.com/Articles/758458/Passing-Data-View-to-Controller-Controller-to-View
+        // TODO : Do dripdown list with cashed data from ViewBag!!!
+        public ActionResult PresentVote(PresentVoteModel input, FormCollection formCollection)
+        {
+            //formCollection.Get("YearTo")
+            if (!string.IsNullOrEmpty(formCollection.Get("PresentsId")))
+            {
+                var presentVote = new PresentVote
+                {
+                    VoteId = input.VoteId,
+                    UserId = this.User.Identity.GetUserId(),
+                    PresentId = int.Parse(formCollection.Get("PresentsId")),
+                    DateVote = DateTime.Now
+                };
+
+                this.dbData.PresentsVotes.Add(presentVote);
+                this.dbData.Votes.SaveChanges();
+
+                return this.RedirectToAction("OpenedVotes");
+            }
+            
+            return View(input);
+        }
+
+
+        /*
+         * 
+        [HttpGet]
+        [Authorize]
+        [PopulatePresents]
+        public ActionResult PresentVote(int id, string birthdayPersonName)
+        {
+            //var model = new PresentVoteModel();
+            var presentVateModel = new PresentVoteModel
+            {
+                VoteId = id,
+                // UserId = this.User.Identity.GetUserId(),
+                BirthdayPerson = birthdayPersonName,
+                // DateVote = DateTime.Now,
+            };
+
+            var presents = this.presentData.GetAllPresents().ToList();
+
+            presentVateModel.Presents = new SelectList(presents, "Id", "Name"); ;
+
+            return View(presentVateModel);
+        }
+         * 
+         * 
+         * 
+        [HttpPost]
+        [Authorize]
+        [PopulatePresents]
+        [ValidateAntiForgeryToken]
+        // http://www.codeproject.com/Articles/758458/Passing-Data-View-to-Controller-Controller-to-View
+        // TODO : Do dripdown list with cashed data from ViewBag!!!
+        public ActionResult PresentVote(PresentVoteModel input) // , FormCollection presentsDropdown) //
+        {
+            var presents = this.presentData.GetAllPresents().ToList();
+
+            input.Presents = new SelectList(presents, "Id", "Name"); ;
+
+            if (ModelState.IsValid)
+            {
+                var presentVote = new PresentVote
+                {
+                    VoteId = input.VoteId,
+                    UserId = this.User.Identity.GetUserId(),
+                    PresentId = input.PresentId, //int.Parse(input.Present),
+                    DateVote = DateTime.Now
+                };
+
+                this.dbData.PresentsVotes.Add(presentVote);
+                this.dbData.Votes.SaveChanges();
+
+                return this.RedirectToAction("OpenedVotes");
+            }
+
+            return View(input);
+        }
+        */
     }
 }

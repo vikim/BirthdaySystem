@@ -77,6 +77,8 @@ namespace BirthdaySystem.Web.App_Start
 
             kernel.Bind<IBirthdayPeopleService>().To<BirthdayPeopleService>();
 
+            kernel.Bind<IPresentService>().To<PresentService>();
+
             kernel.Bind<IVoteService>().To<VoteService>();
 
             kernel.Bind<ICacheService>().To<MemoryCacheService>();

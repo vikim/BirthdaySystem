@@ -18,7 +18,7 @@
             <td>@vote.BirthdayPerson.FirstName @vote.BirthdayPerson.LastName</td>
             <td>@vote.StartDate.ToShortDateString()</td>
             <td>@vote.Year</td>
-            <td>@Html.ActionLink("Vote for a present", "PresentVote", new { id = @vote.Id})</td>
+            <td>@Html.ActionLink("Vote for a present", "PresentVote", new { id = @vote.Id, birthdayPersonName = @vote.BirthdayPerson.Name })</td>
         </tr>
     }
 </table>

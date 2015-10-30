@@ -17,6 +17,7 @@
         {
             this.data = data;
         }
+
         public IQueryable<Vote> GetVote(string birthdayPerson, int year)
         {
             var vote = this.data.All()

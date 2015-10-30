@@ -103,7 +103,7 @@
     <Compile Include="Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Mapping\IMapFrom.cs" />
     <Compile Include="Populators\PlaceHolderAttribute.cs" />
-    <Compile Include="Populators\PopulateBirthdayPeopleAttribute.cs" />
+    <Compile Include="Populators\PopulatePresentsAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

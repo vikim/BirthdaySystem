@@ -6,17 +6,15 @@
 
     using BirthdaySystem.Web.Infrastructure.Cache;
     
-    public class PopulateBirthdayPeopleAttribute : ActionFilterAttribute
+    public class PopulatePresentsAttribute : ActionFilterAttribute
     {
-        /*
         [Inject]
         public ICacheService Cache { private get; set; }
 
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            filterContext.Controller.ViewBag.BirthdayPeopleId = new SelectList(Cache.BirthdayPeople, "Id", "Name");
+            filterContext.Controller.ViewBag.PresentsId = new SelectList(Cache.GetAllPresents, "Id", "Name");
             base.OnResultExecuting(filterContext);
         }
-         * */
     }
 }
