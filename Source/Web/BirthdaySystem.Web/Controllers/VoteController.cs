@@ -212,5 +212,36 @@
             return View(input);
         }
         */
+            
+
+        //[HttpGet]
+        [Authorize]
+        public ActionResult CloseVote()
+        {
+            var votesForClosingByTheUser = this.voteData
+                .GetAllUnclosedVotes(this.User.Identity.GetUserId())
+                .Project()
+                .To<VoteModel>()
+                .ToList();
+
+            return View(votesForClosingByTheUser);
+        }
+
+        //[HttpPost]
+        [Authorize]
+        public ActionResult CloseVoteById(int id)
+        {
+            this.voteData.CloseVote(id);
+
+            //var votesForClosingByTheUser = this.voteData
+            //    .GetAllUnclosedVotes(this.User.Identity.GetUserId())
+            //    .Project()
+            //    .To<VoteModel>()
+            //    .ToList();
+
+            //return View(votesForClosingByTheUser);
+
+            return this.RedirectToAction("CloseVote");
+        }
     }
 }

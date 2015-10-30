@@ -8,6 +8,7 @@
     using BirthdaySystem.Data.Common.Data;
 
     using System.Collections.Generic;
+    using System;
 
     public class VoteService : IVoteService
     {
@@ -77,6 +78,30 @@
                             (!givenPresentVote.Contains(v.Id)));
 
             return availableVotes;
+        }
+
+
+        public IQueryable<Vote> GetAllUnclosedVotes(string currentUser)
+        {
+            var votesForClosingByTheUser = this.data.All()
+                .Where(v => v.InitiatorId == currentUser && v.EndDate == null);
+
+            return votesForClosingByTheUser;
+        }
+
+
+        public void CloseVote(int id)
+        {
+            var voteForClosing = this.data.All()
+                .Where(v => v.Id == id)
+                .FirstOrDefault();
+
+            voteForClosing.EndDate = DateTime.Now;
+            
+            // TODO : Check if a vote with given id exist
+
+            this.data.Update(voteForClosing);
+            this.data.SaveChanges();
         }
     }
 }

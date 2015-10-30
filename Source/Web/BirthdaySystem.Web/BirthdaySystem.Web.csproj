@@ -269,6 +269,7 @@
     <Content Include="Views\Vote\CreateVote.cshtml" />
     <Content Include="Views\Vote\OpenedVotes.cshtml" />
     <Content Include="Views\Vote\PresentVote.cshtml" />
+    <Content Include="Views\Vote\CloseVote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

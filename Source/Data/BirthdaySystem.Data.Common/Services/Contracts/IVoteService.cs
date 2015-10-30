@@ -12,5 +12,9 @@
         IQueryable<Vote> GetVote(string birthdayPerson, int year);
 
         IQueryable<Vote> GetAvailableVotes(IBirthdayData dbData, string currentUser);
+
+        IQueryable<Vote> GetAllUnclosedVotes(string currentUser);
+
+        void CloseVote(int id);
     }
 }
